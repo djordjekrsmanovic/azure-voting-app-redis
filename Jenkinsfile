@@ -32,7 +32,7 @@ pipeline {
       }
     }
     
-    }
+    
       stage('Docker Build') {
          steps {
             // script{
@@ -42,7 +42,7 @@ pipeline {
             //   foldersList = output2.tokenize('\n').collect() { it }
             //   echo "..." + foldersList
             // }
-            steps{
+            
               sh script:'''
                   #!/bin/bash
                   echo "This is start $(pwd)"
@@ -60,7 +60,7 @@ pipeline {
             //    docker images -a
             //    cd ..
             // """)
-         }
+         
       }
       // stage('Start test app') {
       //    steps {
