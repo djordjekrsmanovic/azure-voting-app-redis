@@ -28,14 +28,22 @@ pipeline {
              docker-compose up
           '''
         }
-        post{
-          success{
-            echo "App started successfully"
-          }
-          failure{
-            echo "App can not start"
-          }
-        }
+        
+      }
+
+      stage('Run Tests') {
+         steps {
+            bat script: """
+               pytest ./tests/test_sample.py
+            """
+         }
+      }
+      stage('Stop test app') {
+         steps {
+            bat script: """
+               docker-compose down
+            """
+         }
       }
       
    }
