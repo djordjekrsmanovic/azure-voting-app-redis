@@ -13,8 +13,7 @@ pipeline {
           bat script:'''
           #!/bin/bash
           echo "This is start $(pwd)"
-          mkdir hello
-          cd ./hello
+          cd ./azure-vote
           echo "This is $(pwd)"
         '''
         }
