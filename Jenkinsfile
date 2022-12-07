@@ -8,7 +8,7 @@ pipeline {
          }
       }
 
-      stage("Test") {
+      stage("Docker build") {
         steps{
           bat script:'''
           #!/bin/bash
@@ -19,9 +19,24 @@ pipeline {
           docker images -a
           echo "This is $(pwd)"
         '''
+        } 
+      } 
+
+      stage("Start application"){
+        steps{
+          bat script: ''' 
+            docker compose up -d ./scripts/test_container.ps1
+          '''
         }
-        
-    }
+        post{
+          success{
+            echo "App started successfully"
+          }
+          failure{
+            echo "App can not start"
+          }
+        }
+      }
       
    }
 }
