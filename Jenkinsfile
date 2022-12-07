@@ -25,7 +25,8 @@ pipeline {
       stage("Start application"){
         steps{
           bat script: ''' 
-             docker-compose up
+             docker-compose up -d
+
           '''
         }
         
