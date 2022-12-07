@@ -14,6 +14,9 @@ pipeline {
           #!/bin/bash
           echo "This is start $(pwd)"
           cd ./azure-vote
+          docker images -a
+          docker build -t app-image .
+          docker images -a
           echo "This is $(pwd)"
         '''
         }
