@@ -10,7 +10,7 @@ pipeline {
 
       stage("Test") {
         steps{
-          sh script:'''
+          bat script:'''
           #!/bin/bash
           echo "This is start $(pwd)"
           mkdir hello
