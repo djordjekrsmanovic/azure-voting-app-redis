@@ -7,9 +7,7 @@ pipeline {
             echo "$GIT_BRANCH"
          }
       }
-      pipeline {
-  stages {
-    stage('Find all fodlers from given folder') {
+      stage('Find all fodlers from given folder') {
       steps {
         script {
                     
@@ -33,9 +31,9 @@ pipeline {
           echo ".... " + foldersList
         }            
       }
-    }
-  }
-}
+   }
+   
+
       // stage('Docker Build') {
       //    steps {
       //       pwsh(script: 'docker images -a')
