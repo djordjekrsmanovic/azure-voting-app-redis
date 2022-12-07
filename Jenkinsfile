@@ -25,7 +25,7 @@ pipeline {
       stage("Start application"){
         steps{
           bat script: ''' 
-             docker-compose up -d ./scripts/test_container.ps1
+             docker-compose up
           '''
         }
         post{
