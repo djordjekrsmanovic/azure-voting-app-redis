@@ -23,7 +23,7 @@ pipeline {
             def output = sh returnStdout: true, script: "ls -l ${JENKINS_HOME} | grep ^d | awk '{print \$9}'"
             foldersList = output.tokenize('\n').collect() { it }
           } else {
-            def output = bat returnStdout: true, script: "dir \"${JENKINS_HOME}\" /b /A:D"
+            def output = bat returnStdout: true, script: "dir . /b /A:D"
             foldersList = output.tokenize('\n').collect() { it }
             foldersList = foldersList.drop(2)
                      
