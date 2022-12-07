@@ -17,7 +17,7 @@ pipeline {
           echo "osName: " + osName
     
           echo ".... JENKINS_HOME: ${JENKINS_HOME}"
-          echo ".... WORKSPACE: ${WORKSPACE}"
+          echo ".... WORKSPACE:${WORKSPACE}"
     
           if(isUnix()) {
             def output = sh returnStdout: true, script: "ls -l ${JENKINS_HOME} | grep ^d | awk '{print \$9}'"
@@ -31,9 +31,7 @@ pipeline {
           echo ".... " + foldersList
         }            
       }
-   }
-   
-
+    }
       // stage('Docker Build') {
       //    steps {
       //       pwsh(script: 'docker images -a')
