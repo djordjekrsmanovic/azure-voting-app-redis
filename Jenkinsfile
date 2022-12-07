@@ -9,13 +9,16 @@ pipeline {
       }
 
       stage("Test") {
-        sh script:'''
+        steps{
+          sh script:'''
           #!/bin/bash
           echo "This is start $(pwd)"
           mkdir hello
           cd ./hello
           echo "This is $(pwd)"
         '''
+        }
+        
     }
       
    }
