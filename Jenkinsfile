@@ -31,25 +31,25 @@ pipeline {
         }            
       }
     }
-    node {
-    stage("Test") {
-        sh script:'''
+    
+    }
+      stage('Docker Build') {
+         steps {
+            // script{
+            //   def foldersList = []
+            //   bat script: "cd ./azure-vote"
+            //   def output2 = bat returnStdout: true, script: "dir . /b /A:D"
+            //   foldersList = output2.tokenize('\n').collect() { it }
+            //   echo "..." + foldersList
+            // }
+            steps{
+              sh script:'''
           #!/bin/bash
           echo "This is start $(pwd)"
           mkdir hello
           cd ./hello
           echo "This is $(pwd)"
         '''
-    }
-    }
-      stage('Docker Build') {
-         steps {
-            script{
-              def foldersList = []
-              bat script: "cd ./azure-vote"
-              def output2 = bat returnStdout: true, script: "dir . /b /A:D"
-              foldersList = output2.tokenize('\n').collect() { it }
-              echo "..." + foldersList
             }
             // pwsh(script: 'cd azure-vote/')
             
