@@ -36,7 +36,7 @@ pipeline {
          steps {
             script{
               def foldersList = []
-              def output = bat returnStdout: true, script: "dir . /b /A:D"
+              def output = bat returnStdout: true, script: "cd azure-vote/ dir . /b /A:D"
               foldersList = output.tokenize('\n').collect() { it }
               echo "..." + foldersList
             }
